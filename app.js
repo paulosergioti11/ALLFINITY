@@ -1,8 +1,24 @@
-// Menu carrinho
-document.getElementById('cart-btn').addEventListener('click', () => {
-  const cartSidebar = document.querySelector('.cart-sidebar');
-  const isHidden = cartSidebar.getAttribute('aria-hidden') === 'true';
-  cartSidebar.setAttribute('aria-hidden', !isHidden);
+// Abrir carrinho
+const cartBtn = document.getElementById('cart-btn');
+const cartSidebar = document.querySelector('.cart-sidebar');
+const overlay = document.getElementById('overlay');
+const closeCartBtn = document.getElementById('close-cart');
+
+cartBtn.addEventListener('click', () => {
+  cartSidebar.setAttribute('aria-hidden', 'false');
+  overlay.style.display = 'block';
+});
+
+// Fechar carrinho pelo botão ✖
+closeCartBtn.addEventListener('click', () => {
+  cartSidebar.setAttribute('aria-hidden', 'true');
+  overlay.style.display = 'none';
+});
+
+// Fechar carrinho clicando fora (overlay)
+overlay.addEventListener('click', () => {
+  cartSidebar.setAttribute('aria-hidden', 'true');
+  overlay.style.display = 'none';
 });
 
 // Cronômetro regressivo diário
@@ -37,3 +53,4 @@ function startCountdown() {
   setInterval(updateTimer, 1000);
 }
 startCountdown();
+
