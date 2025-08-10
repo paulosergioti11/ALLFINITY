@@ -1,13 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ALLFINITY — Loja de Dropshipping</title>
-  <meta name="description" content="ALLFINITY — Produtos selecionados com envio direto do fornecedor. Promoções e frete rápido." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ALLFINITY - Dropshipping Premium</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Formas decorativas no fundo -->
+  <div class="bg-shapes">
+    <span class="shape shape1"></span>
+    <span class="shape shape2"></span>
+    <span class="shape shape3"></span>
+    <span class="shape shape4"></span>
+  </div>
 
   <!-- Banner promocional -->
   <div class="promo-banner">
@@ -17,62 +23,60 @@
 
   <!-- Header -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#">ALLFINITY</a>
-      <nav class="main-nav" aria-label="Menu principal">
+    <div class="header-inner container">
+      <a href="#" class="logo">ALLFINITY</a>
+      <nav class="main-nav">
+        <a href="#">Início</a>
         <a href="#produtos">Produtos</a>
-        <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </nav>
       <div class="actions">
-        <button id="cartBtn" aria-label="Abrir carrinho">🛒 <span id="cartCount">0</span></button>
+        <button id="cart-btn">🛒</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Bem-vindo à ALLFINITY</h1>
-        <p>Produtos selecionados, entrega rápida. Confira as promoções.</p>
-        <a class="btn" href="#produtos">Ver Produtos</a>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Bem-vindo à ALLFINITY</h1>
+    <p>Os melhores produtos com entrega rápida e segura</p>
+    <a href="#produtos" class="btn">Ver Produtos</a>
+  </section>
+
+  <!-- Produtos -->
+  <section class="section container" id="produtos">
+    <h2>Produtos em Destaque</h2>
+    <div class="grid">
+      <div class="product">
+        <img src="https://via.placeholder.com/300x180" alt="Produto 1">
+        <h3>Produto 1</h3>
+        <p class="price">R$ 99,90</p>
+        <a href="#" class="btn">Adicionar ao carrinho</a>
       </div>
-    </section>
-
-    <section id="produtos" class="container section produtos">
-      <h2>Nossos Produtos</h2>
-      <div id="productGrid" class="grid"></div>
-    </section>
-
-    <section id="sobre" class="container section">
-      <h2>Sobre a ALLFINITY</h2>
-      <p>Loja especializada em dropshipping — foco em conversão, atendimento e envio direto do fornecedor.</p>
-    </section>
-
-    <section id="contato" class="container section">
-      <h2>Contato</h2>
-      <p>Fale conosco via WhatsApp clicando no botão verde no canto ou envie um e-mail: contato@allfinity.example</p>
-    </section>
-  </main>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x180" alt="Produto 2">
+        <h3>Produto 2</h3>
+        <p class="price">R$ 149,90</p>
+        <a href="#" class="btn">Adicionar ao carrinho</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Carrinho -->
-  <aside id="cartSidebar" class="cart-sidebar" aria-hidden="true">
-    <header>
-      <h3>Carrinho</h3>
-      <button id="closeCart">✕</button>
-    </header>
-    <div id="cartItems" class="cart-items"></div>
-    <footer class="cart-footer">
-      <div class="cart-totals">Total: R$ <span id="cartTotal">0.00</span></div>
-      <button id="checkoutBtn" class="btn primary">Finalizar Compra</button>
-    </footer>
+  <aside class="cart-sidebar" aria-hidden="true">
+    <h2>Seu Carrinho</h2>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <a href="#" class="btn">Finalizar Compra</a>
+    </div>
   </aside>
 
   <!-- WhatsApp -->
-  <a id="whatsappBtn" class="whatsapp" href="https://wa.me/SEU_NUMERO_AQUI?text=Olá%20ALLFINITY%2C%20gostaria%20de%20saber%20mais%20sobre%20um%20produto" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" />
+  <a href="https://wa.me/5599999999999" target="_blank" class="whatsapp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
   <script src="app.js"></script>
 </body>
 </html>
+
