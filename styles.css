@@ -16,6 +16,25 @@ body {
   color: var(--text);
 }
 
+/* Banner Promocional */
+.promo-banner {
+  background: var(--gold);
+  color: var(--text);
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+#countdown {
+  font-weight: 900;
+  color: var(--blue);
+}
+
 /* Header */
 .site-header {
   background: #fff;
@@ -105,6 +124,16 @@ body {
   display: inline-block;
   padding-bottom: 5px;
 }
+.section h2::before {
+  content: "⭐";
+  color: var(--gold);
+  margin-right: 8px;
+  animation: spinStar 2.5s linear infinite;
+}
+@keyframes spinStar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -117,6 +146,12 @@ body {
   border: 2px solid var(--gold);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.product.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .product:hover {
   transform: translateY(-5px);
@@ -225,5 +260,3 @@ body {
   .product img { height: 200px; }
   .cart-sidebar { width: 100%; right: -100%; }
 }
-
-        
