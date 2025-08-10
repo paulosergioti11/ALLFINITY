@@ -53,4 +53,3 @@ function startCountdown() {
   setInterval(updateTimer, 1000);
 }
 startCountdown();
-
