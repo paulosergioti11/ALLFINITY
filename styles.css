@@ -1,22 +1,52 @@
 :root {
-  --bg: #F4F9FF;       /* Fundo azul claro */
+  --bg: #F4F9FF;
   --card: #fff;
-  --blue: #007BFF;     /* Azul vibrante */
-  --green: #28A745;    /* Verde destaque */
-  --gold: #FFD700;     /* Dourado */
+  --blue: #007BFF;
+  --green: #28A745;
+  --gold: #FFD700;
   --muted: #5f6368;
-  --text: #0D1B2A;     /* Azul escuro para texto */
+  --text: #0D1B2A;
 }
 
-* { box-sizing: border-box; }
+/* Fundo com gradiente animado */
 body {
   font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
-  background: var(--bg);
   color: var(--text);
+  background: linear-gradient(135deg, #e6f0ff, #f4fff4);
+  background-size: 300% 300%;
+  animation: bgMove 12s ease infinite;
+}
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Banner Promocional */
+/* Formas flutuando */
+.bg-shapes {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 20s infinite ease-in-out;
+}
+.shape1 { width: 150px; height: 150px; background: var(--blue); top: 10%; left: 5%; animation-delay: 0s; }
+.shape2 { width: 200px; height: 200px; background: var(--green); top: 60%; left: 80%; animation-delay: 5s; }
+.shape3 { width: 120px; height: 120px; background: var(--gold); top: 40%; left: 30%; animation-delay: 10s; }
+.shape4 { width: 180px; height: 180px; background: var(--blue); top: 80%; left: 10%; animation-delay: 15s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-40px) translateX(20px); }
+}
+
+/* Banner promocional */
 .promo-banner {
   background: var(--gold);
   color: var(--text);
@@ -25,6 +55,8 @@ body {
   font-weight: 700;
   font-size: 1rem;
   animation: blink 1.5s infinite;
+  position: relative;
+  z-index: 10;
 }
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -35,9 +67,10 @@ body {
   color: var(--blue);
 }
 
-/* Header */
+/* Glassmorphism Header */
 .site-header {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   border-bottom: 4px solid var(--gold);
   position: sticky;
   top: 0;
@@ -49,6 +82,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
 }
 .logo {
   font-weight: 900;
@@ -61,11 +96,8 @@ body {
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s;
 }
-.main-nav a:hover {
-  color: var(--blue);
-}
+.main-nav a:hover { color: var(--blue); }
 .actions button {
   background: none;
   border: 0;
@@ -81,21 +113,17 @@ body {
   color: #fff;
   border-bottom: 5px solid var(--gold);
   animation: gradientShift 8s ease infinite;
+  backdrop-filter: blur(4px);
 }
 @keyframes gradientShift {
   0% { background: linear-gradient(135deg, var(--blue), var(--green)); }
   50% { background: linear-gradient(135deg, var(--green), var(--blue)); }
   100% { background: linear-gradient(135deg, var(--blue), var(--green)); }
 }
-.hero h1 {
-  margin: 0 0 .5rem;
-  font-size: 2.4rem;
-  font-weight: 800;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1.2rem;
-}
+.hero h1 { font-size: 2.4rem; font-weight: 800; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.2rem; }
+
+/* Botões */
 .btn {
   display: inline-block;
   background: var(--blue);
@@ -113,12 +141,12 @@ body {
   box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
 }
 
-/* Produtos */
+/* Produtos com glassmorphism */
 .section {
   padding: 2rem 0;
+  text-align: center;
 }
 .section h2 {
-  text-align: center;
   color: var(--blue);
   border-bottom: 3px solid var(--gold);
   display: inline-block;
@@ -138,25 +166,22 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 .product {
-  background: var(--card);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
   border-radius: 15px;
   padding: 1rem;
   border: 2px solid var(--gold);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
   opacity: 0;
   transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .product.visible {
   opacity: 1;
   transform: translateY(0);
-}
-.product:hover {
-  transform: translateY(-5px);
-  border-color: var(--blue);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 .product img {
   width: 100%;
@@ -164,23 +189,9 @@ body {
   object-fit: cover;
   border-radius: 12px;
 }
-.product h3 {
-  margin: 0.6rem 0;
-  font-size: 1.1rem;
-}
 .price {
   font-weight: 700;
   color: var(--green);
-  font-size: 1.1rem;
-}
-.product .btn {
-  background: var(--green);
-  width: 100%;
-  text-align: center;
-}
-.product .btn:hover {
-  background: var(--gold);
-  color: var(--text);
 }
 
 /* Carrinho */
@@ -199,35 +210,6 @@ body {
   z-index: 200;
 }
 .cart-sidebar[aria-hidden="false"] { right: 0; }
-.cart-items {
-  flex: 1;
-  overflow: auto;
-  margin-top: 1rem;
-}
-.cart-item {
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-.cart-item img {
-  width: 56px;
-  height: 56px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.cart-footer {
-  padding-top: 1rem;
-}
-.cart-footer .btn {
-  width: 100%;
-  background: var(--blue);
-}
-.cart-footer .btn:hover {
-  background: var(--gold);
-  color: var(--text);
-}
 
 /* WhatsApp */
 .whatsapp {
@@ -241,13 +223,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
   animation: pulse 2s infinite;
 }
-.whatsapp img {
-  width: 28px;
-  height: 28px;
-}
+.whatsapp img { width: 28px; height: 28px; }
 @keyframes pulse {
   0% { transform: scale(1); box-shadow: 0 0 0 rgba(37,211,102,0.7); }
   70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37,211,102,0); }
