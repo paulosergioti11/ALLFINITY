@@ -1,4 +1,3 @@
-// Simple front-end store. Replace product data with sua base / API quando pronto.
 const products = [
   {id:1, title:"Fone Bluetooth X1", price:79.90, img:"https://images.unsplash.com/photo-1518444020937-6b6f8b3b37a9?q=80&w=800&auto=format&fit=crop"},
   {id:2, title:"Relógio SmartFit", price:129.90, img:"https://images.unsplash.com/photo-1517414204281-9c0b1b0aba82?q=80&w=800&auto=format&fit=crop"},
@@ -62,10 +61,8 @@ function renderCart(){
   localStorage.setItem('allfinity_cart', JSON.stringify(cart));
 }
 
-// add to cart
 document.body.addEventListener('click', e=>{
   const t = e.target;
-  // add button
   if(t.matches('.product .btn')){
     const id = Number(t.dataset.id);
     const p = products.find(x=>x.id===id);
@@ -75,10 +72,8 @@ document.body.addEventListener('click', e=>{
     renderCart();
     openCart();
   }
-  // cart toggles
   if(t === cartBtn){ openCart(); }
   if(t === closeCart){ closeCartFn(); }
-  // qty ops
   if(t.dataset.op){
     const id = Number(t.dataset.id);
     const item = cart.find(x=>x.id===id);
@@ -88,16 +83,13 @@ document.body.addEventListener('click', e=>{
     cart = cart.filter(x=>x.qty>0);
     renderCart();
   }
-  // checkout
   if(t === checkoutBtn){
-    // Exemplo simples: enviar para WhatsApp com resumo do pedido (alternativa ao checkout real)
     if(cart.length===0){ alert('Carrinho vazio'); return; }
     const text = encodeURIComponent(
       'Olá, gostaria de fazer o pedido:\n' +
       cart.map(i=>`${i.qty}x ${i.title} — R$ ${fmt(i.price)}`).join('\n') +
       `\nTotal: R$ ${cartTotalEl.textContent}`
     );
-    // substitua SEU_NUMERO_AQUI pelo número no formato internacional sem + e sem zeros (ex: 5511999999999)
     window.open(`https://wa.me/SEU_NUMERO_AQUI?text=${text}`, '_blank');
   }
 });
@@ -107,3 +99,18 @@ function closeCartFn(){ cartSidebar.setAttribute('aria-hidden','true'); }
 
 renderProducts();
 renderCart();
+
+// Animação de entrada ao rolar
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.product').forEach(card => observer.observe(card));
+
+// Cronômetro regressivo diário
+function startCountdown() {
+  const countdownEl = document.getElementById('countdown');
