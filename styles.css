@@ -2,16 +2,16 @@
    Variáveis de Cores
 ============================== */
 :root {
-  --blue: #007BFF;
-  --green: #00C853;
-  --purple: #9C27B0;
+  --blue: #00BFFF;
+  --green: #00FF7F;
+  --purple: #B000F0;
   --neon-purple: #D500F9;
-  --turquoise: #00D4FF;
-  --pink: #FF4081;
+  --turquoise: #00E5FF;
+  --pink: #FF1493;
   --white: #FFFFFF;
   --muted: #666;
-  --bg: #F5F7FA;
-  --card: #FFFFFF;
+  --bg: #0F0F1E;
+  --card: rgba(255,255,255,0.08);
 }
 
 /* ==============================
@@ -25,19 +25,37 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--bg);
-  color: #222;
+  background: linear-gradient(135deg, #0F0F1E, #1C1C3A);
+  color: var(--white);
+}
+
+/* ==============================
+   Scrollbar Custom
+============================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1C1C3A;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
 }
 
 /* ==============================
    Banner Promocional
 ============================== */
 .promo-banner {
-  background: linear-gradient(90deg, var(--blue), var(--purple), var(--turquoise));
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
   color: var(--white);
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.6rem;
   font-weight: bold;
+  letter-spacing: 1px;
   animation: gradientMove 6s infinite alternate;
 }
 
@@ -50,8 +68,11 @@ body {
    Cabeçalho
 ============================== */
 .site-header {
-  background: var(--card);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-inner {
@@ -62,23 +83,24 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: var(--blue);
-  text-decoration: none;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .main-nav a {
   margin: 0 0.75rem;
   text-decoration: none;
-  color: var(--muted);
+  color: var(--white);
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
-  color: var(--purple);
+  color: var(--pink);
 }
 
 .actions button {
@@ -86,6 +108,7 @@ body {
   border: none;
   font-size: 1.3rem;
   cursor: pointer;
+  color: var(--white);
 }
 
 /* ==============================
@@ -93,18 +116,26 @@ body {
 ============================== */
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, var(--blue), var(--turquoise));
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, var(--purple), var(--blue), var(--turquoise));
+  background-size: 300% 300%;
+  animation: heroGradient 8s ease infinite;
   color: var(--white);
 }
 
+@keyframes heroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 1.5rem;
 }
 
@@ -112,19 +143,18 @@ body {
    Botões
 ============================== */
 .btn {
-  background: linear-gradient(90deg, var(--green), var(--blue));
+  background: linear-gradient(90deg, var(--green), var(--blue), var(--purple));
   color: var(--white);
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.2s, background 0.3s;
+  transition: transform 0.2s, box-shadow 0.3s;
   display: inline-block;
 }
-
 .btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, var(--blue), var(--green));
+  transform: scale(1.07);
+  box-shadow: 0 0 15px var(--turquoise);
 }
 
 /* ==============================
@@ -150,20 +180,23 @@ body {
 ============================== */
 .product {
   background: var(--card);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   padding: 1rem;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
 .product img {
   max-width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
 }
-
 .price {
   font-weight: bold;
-  color: var(--blue);
+  color: var(--green);
   margin: 0.5rem 0 1rem;
 }
 
@@ -173,7 +206,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.6);
   display: none;
 }
 
@@ -184,36 +217,32 @@ body {
   height: 100%;
   width: 300px;
   background: var(--card);
-  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: -2px 0 6px rgba(0,0,0,0.4);
   transform: translateX(100%);
   transition: transform 0.3s ease;
   padding: 1rem;
   display: flex;
   flex-direction: column;
 }
-
 .cart-sidebar[aria-hidden="false"] {
   transform: translateX(0);
 }
-
 .cart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
-
 #close-cart {
   background: none;
   border: none;
   font-size: 1.4rem;
   cursor: pointer;
-  color: var(--muted);
-  transition: color 0.2s;
+  color: var(--white);
 }
-
 #close-cart:hover {
-  color: var(--blue);
+  color: var(--pink);
 }
 
 /* ==============================
@@ -230,9 +259,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
-
 .whatsapp img {
   width: 35px;
   height: 35px;
@@ -245,7 +273,7 @@ body {
   background: var(--card);
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   margin-bottom: 1.5rem;
   text-align: left;
 }
@@ -259,7 +287,7 @@ body {
   text-decoration: none;
 }
 .contact-info a:hover {
-  color: var(--purple);
+  color: var(--pink);
 }
 
 .contact-form {
@@ -271,14 +299,16 @@ body {
 .contact-form input,
 .contact-form textarea {
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 6px;
   font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
 }
 
 .contact-links {
@@ -292,7 +322,8 @@ body {
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
+  transition: transform 0.2s;
 }
 .contact-links a:hover {
-  background: linear-gradient(90deg, var(--purple), var(--blue));
+  transform: scale(1.05);
 }
