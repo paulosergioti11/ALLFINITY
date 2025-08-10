@@ -41,11 +41,11 @@ function startCountdown() {
 
     countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
 
-    // Muda cor para vermelho se faltar < 1 hora
+    // Muda cor para rosa neon se faltar < 1 hora
     if (diff <= 3600000) {
-      countdownEl.style.color = 'red';
+      countdownEl.style.color = 'var(--pink)';
     } else {
-      countdownEl.style.color = 'var(--blue)';
+      countdownEl.style.color = 'var(--turquoise)';
     }
   }
 
