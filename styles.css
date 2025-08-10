@@ -215,3 +215,24 @@ body {
     right: -100%;
   }
 }
+.contact-info {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.contact-info p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+.contact-info a {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  color: var(--purple);
+}
+
