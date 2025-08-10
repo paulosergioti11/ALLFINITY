@@ -127,6 +127,18 @@ body {
   color: var(--green);
 }
 
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 150;
+}
+
 /* Carrinho */
 .cart-sidebar {
   position: fixed;
@@ -144,6 +156,23 @@ body {
 }
 .cart-sidebar[aria-hidden="false"] {
   right: 0;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+#close-cart {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+#close-cart:hover {
+  color: var(--blue);
 }
 
 /* WhatsApp */
