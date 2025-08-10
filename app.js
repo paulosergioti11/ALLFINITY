@@ -5,18 +5,6 @@ document.getElementById('cart-btn').addEventListener('click', () => {
   cartSidebar.setAttribute('aria-hidden', !isHidden);
 });
 
-// Animação dos produtos ao rolar
-const productCards = document.querySelectorAll('.product');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-productCards.forEach(card => observer.observe(card));
-
 // Cronômetro regressivo diário
 function startCountdown() {
   const countdownEl = document.getElementById('countdown');
