@@ -8,102 +8,169 @@
 </head>
 <body>
 
+  <!-- Banner -->
   <div class="promo-banner">
-    🛒 Explore nossas categorias e encontre seu próximo produto favorito!
+    🛍️ Aproveite nossas ofertas exclusivas de hoje!
+    <span id="countdown"></span>
   </div>
 
   <!-- Cabeçalho -->
   <header class="site-header">
     <div class="header-inner container">
       <a href="index.html" class="logo">ALLFINITY</a>
-      <nav class="main-nav" role="navigation">
+      <nav class="main-nav">
         <a href="index.html">Início</a>
         <a href="produtos.html" class="active">Produtos</a>
         <a href="contato.html">Contato</a>
       </nav>
       <div class="actions">
-        <button id="open-cart" aria-label="Abrir carrinho">🛒</button>
+        <button id="cart-btn" aria-label="Abrir carrinho">🛒</button>
       </div>
     </div>
   </header>
 
-  <!-- Seção de Categorias -->
-  <section class="section container">
-    <h2>Categorias</h2>
-    <div class="category-links">
-      <a href="#todas" class="active">Todas</a>
-      <a href="#eletronicos">Eletrônicos</a>
-      <a href="#acessorios">Acessórios</a>
-      <a href="#casa">Casa & Decoração</a>
-      <a href="#esporte">Esporte</a>
+  <!-- Seção: Eletrônicos -->
+  <section id="eletronicos" class="section container">
+    <h2>Eletrônicos</h2>
+    <div class="grid">
+
+      <div class="product">
+        <img src="https://via.placeholder.com/250x200" alt="Fone Bluetooth">
+        <h3>Fone Bluetooth</h3>
+        <p class="desc">Qualidade de som premium com cancelamento de ruído.</p>
+        <p class="price">R$ 199,90</p>
+        <div class="product-actions">
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="https://via.placeholder.com/250x200" alt="Smartwatch">
+        <h3>Smartwatch</h3>
+        <p class="desc">Monitoramento de saúde, chamadas e notificações no pulso.</p>
+        <p class="price">R$ 299,90</p>
+        <div class="product-actions">
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="https://via.placeholder.com/250x200" alt="Caixa de Som Portátil">
+        <h3>Caixa de Som Portátil</h3>
+        <p class="desc">Bateria de longa duração e som potente.</p>
+        <p class="price">R$ 249,90</p>
+        <div class="product-actions">
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Todas -->
-  <section id="todas" class="section container">
-    <h2>Todos os Produtos</h2>
+  <!-- Seção: Acessórios -->
+  <section id="acessorios" class="section container">
+    <h2>Acessórios</h2>
     <div class="grid">
-      <!-- Produto exemplo -->
-      <div class="product">
-        <img src="https://via.placeholder.com/250x200" alt="Fone Bluetooth" loading="lazy">
-        <h3>Fone Bluetooth</h3>
-        <p class="desc">Som de alta qualidade com conexão rápida e bateria duradoura.</p>
-        <p class="price">R$ 199,90</p>
-        <div class="product-actions">
-          <button class="btn add-to-cart" aria-label="Adicionar Fone Bluetooth ao carrinho">Adicionar</button>
-          <a href="#" class="btn secondary">Ver Detalhes</a>
-        </div>
-      </div>
 
       <div class="product">
-        <img src="https://via.placeholder.com/250x200" alt="Smartwatch" loading="lazy">
-        <h3>Smartwatch</h3>
-        <p class="desc">Acompanhe sua saúde e receba notificações direto no pulso.</p>
-        <p class="price">R$ 299,90</p>
-        <div class="product-actions">
-          <button class="btn add-to-cart" aria-label="Adicionar Smartwatch ao carrinho">Adicionar</button>
-          <a href="#" class="btn secondary">Ver Detalhes</a>
-        </div>
-      </div>
-
-      <div class="product">
-        <img src="https://via.placeholder.com/250x200" alt="Carteira Premium" loading="lazy">
+        <img src="https://via.placeholder.com/250x200" alt="Carteira Premium">
         <h3>Carteira Premium</h3>
-        <p class="desc">Design sofisticado em couro ecológico com múltiplos compartimentos.</p>
+        <p class="desc">Design sofisticado em couro legítimo.</p>
         <p class="price">R$ 89,90</p>
         <div class="product-actions">
-          <button class="btn add-to-cart" aria-label="Adicionar Carteira Premium ao carrinho">Adicionar</button>
-          <a href="#" class="btn secondary">Ver Detalhes</a>
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
         </div>
       </div>
 
       <div class="product">
-        <img src="https://via.placeholder.com/250x200" alt="Óculos de Sol" loading="lazy">
+        <img src="https://via.placeholder.com/250x200" alt="Óculos de Sol">
         <h3>Óculos de Sol</h3>
-        <p class="desc">Proteção UV400 com estilo moderno para qualquer ocasião.</p>
+        <p class="desc">Proteção UV400 com estilo moderno.</p>
         <p class="price">R$ 149,90</p>
         <div class="product-actions">
-          <button class="btn add-to-cart" aria-label="Adicionar Óculos de Sol ao carrinho">Adicionar</button>
-          <a href="#" class="btn secondary">Ver Detalhes</a>
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
         </div>
       </div>
 
       <div class="product">
-        <img src="https://via.placeholder.com/250x200" alt="Luminária LED" loading="lazy">
-        <h3>Luminária LED</h3>
-        <p class="desc">Ilumine seu ambiente com luz suave e baixo consumo de energia.</p>
-        <p class="price">R$ 129,90</p>
+        <img src="https://via.placeholder.com/250x200" alt="Mochila Executiva">
+        <h3>Mochila Executiva</h3>
+        <p class="desc">Compartimentos inteligentes e resistente à água.</p>
+        <p class="price">R$ 179,90</p>
         <div class="product-actions">
-          <button class="btn add-to-cart" aria-label="Adicionar Luminária LED ao carrinho">Adicionar</button>
-          <a href="#" class="btn secondary">Ver Detalhes</a>
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção: Moda -->
+  <section id="moda" class="section container">
+    <h2>Moda</h2>
+    <div class="grid">
+
+      <div class="product">
+        <img src="https://via.placeholder.com/250x200" alt="Jaqueta Jeans">
+        <h3>Jaqueta Jeans</h3>
+        <p class="desc">Estilo urbano com acabamento de alta qualidade.</p>
+        <p class="price">R$ 219,90</p>
+        <div class="product-actions">
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
         </div>
       </div>
 
       <div class="product">
-        <img src="https://via.placeholder.com/250x200" alt="Difusor de Aroma" loading="lazy">
-        <h3>Difusor de Aroma</h3>
-        <p class="desc">Perfume sua casa e relaxe com tecnologia ultrassônica silenciosa.</p>
-        <p class="price">R$ 99,90</p>
+        <img src="https://via.placeholder.com/250x200" alt="Tênis Casual">
+        <h3>Tênis Casual</h3>
+        <p class="desc">Conforto e design moderno para o dia a dia.</p>
+        <p class="price">R$ 259,90</p>
         <div class="product-actions">
-          <button class="btn add-to-cart" aria-label="Adicionar Difusor de Aroma ao carrinho">Adicionar</button>
-          <a href="#" class="btn secondary">Ver D
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <img src="https://via.placeholder.com/250x200" alt="Camiseta Estilosa">
+        <h3>Camiseta Estilosa</h3>
+        <p class="desc">Tecido premium com estampas exclusivas.</p>
+        <p class="price">R$ 89,90</p>
+        <div class="product-actions">
+          <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+          <button class="btn secondary">Ver Detalhes</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Carrinho -->
+  <div id="overlay" class="overlay"></div>
+  <aside class="cart-sidebar" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Seu Carrinho</h2>
+      <button id="close-cart" aria-label="Fechar carrinho">✖</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <a href="#" class="btn">Finalizar Compra</a>
+    </div>
+  </aside>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/5599999999999" target="_blank" class="whatsapp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
