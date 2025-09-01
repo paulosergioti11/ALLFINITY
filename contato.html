@@ -16,7 +16,7 @@
   <header class="site-header">
     <div class="header-inner container">
       <a href="index.html" class="logo">ALLFINITY</a>
-      <nav class="main-nav">
+      <nav class="main-nav" role="navigation">
         <a href="index.html">Início</a>
         <a href="produtos.html">Produtos</a>
         <a href="contato.html" class="active">Contato</a>
@@ -30,7 +30,7 @@
   <!-- Seção Contato -->
   <section class="section container">
     <h2>Entre em Contato</h2>
-    <p>Estamos prontos para atender você. Use o formulário abaixo para solicitar assistência ou orçamento.</p>
+    <p role="note">Estamos prontos para atender você. Use o formulário abaixo para solicitar assistência ou orçamento.</p>
 
     <div class="contact-info">
       <p><strong>Email:</strong> contato@allfinity.com.br</p>
@@ -38,9 +38,9 @@
     </div>
 
     <form class="contact-form">
-      <input type="text" placeholder="Seu nome" required>
-      <input type="email" placeholder="Seu e-mail" required>
-      <textarea placeholder="Descreva sua necessidade" required></textarea>
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" placeholder="Descreva sua necessidade" required></textarea>
       <button type="submit" class="btn">Enviar Mensagem</button>
     </form>
   </section>
@@ -52,7 +52,9 @@
       <h2>Seu Carrinho</h2>
       <button id="close-cart" aria-label="Fechar carrinho">✖</button>
     </div>
-    <div class="cart-items"></div>
+    <div class="cart-items">
+      <p class="empty">Seu carrinho está vazio</p>
+    </div>
     <div class="cart-footer">
       <a href="#" class="btn">Finalizar Compra</a>
     </div>
