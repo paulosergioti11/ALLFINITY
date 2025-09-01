@@ -1,29 +1,25 @@
-// Abrir carrinho
-const cartBtn = document.getElementById('cart-btn');
+// Seletores
+const cartBtn = document.getElementById('open-cart');
 const cartSidebar = document.querySelector('.cart-sidebar');
-const overlay = document.getElementById('overlay');
+const overlay = document.querySelector('.overlay');
 const closeCartBtn = document.getElementById('close-cart');
 
-cartBtn.addEventListener('click', () => {
-  cartSidebar.setAttribute('aria-hidden', 'false');
-  overlay.style.display = 'block';
-});
+// Função para abrir/fechar carrinho
+function toggleCart(show) {
+  cartSidebar.setAttribute('aria-hidden', show ? 'false' : 'true');
+  overlay.style.display = show ? 'block' : 'none';
+}
 
-// Fechar carrinho pelo botão ✖
-closeCartBtn.addEventListener('click', () => {
-  cartSidebar.setAttribute('aria-hidden', 'true');
-  overlay.style.display = 'none';
-});
-
-// Fechar carrinho clicando fora (overlay)
-overlay.addEventListener('click', () => {
-  cartSidebar.setAttribute('aria-hidden', 'true');
-  overlay.style.display = 'none';
-});
+// Eventos
+cartBtn.addEventListener('click', () => toggleCart(true));
+closeCartBtn.addEventListener('click', () => toggleCart(false));
+overlay.addEventListener('click', () => toggleCart(false));
 
 // Cronômetro regressivo diário
 function startCountdown() {
   const countdownEl = document.getElementById('countdown');
+  if (!countdownEl) return; // evita erro se não existir
+
   function updateTimer() {
     const now = new Date();
     const midnight = new Date();
@@ -40,13 +36,7 @@ function startCountdown() {
     const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
 
     countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
-
-    // Muda cor para rosa neon se faltar < 1 hora
-    if (diff <= 3600000) {
-      countdownEl.style.color = 'var(--pink)';
-    } else {
-      countdownEl.style.color = 'var(--turquoise)';
-    }
+    countdownEl.style.color = diff <= 3600000 ? 'var(--pink)' : 'var(--turquoise)';
   }
 
   updateTimer();
